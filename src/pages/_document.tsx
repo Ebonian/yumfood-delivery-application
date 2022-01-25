@@ -19,9 +19,6 @@ class MyDocument extends Document {
           <meta charSet="utf-8" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 
-          <meta name="description" content="Description" />
-          <meta name="keywords" content="Keywords" />
-
           <link rel="manifest" href="/manifest.json" />
           <link
             href="/icons/favicon-16x16.png"
@@ -36,7 +33,7 @@ class MyDocument extends Document {
             sizes="32x32"
           />
           <link rel="apple-touch-icon" href="/apple-icon.png" />
-          <meta name="theme-color" content="#317EFB" />
+          <meta name="theme-color" content="#FFFFFF" />
         </Head>
         <body>
           <Main />
