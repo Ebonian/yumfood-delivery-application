@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import LaunchContext from "../contexts/LaunchContext";
+import MapContext from "../contexts/MapContext";
 import Head from "next/head";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -13,9 +14,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
         <title>Yumfood</title>
       </Head>
-      <LaunchContext>
-        <Component {...pageProps} />
-      </LaunchContext>
+      <MapContext>
+        <LaunchContext>
+          <Component {...pageProps} />
+        </LaunchContext>
+      </MapContext>
     </>
   );
 }
