@@ -1,39 +1,26 @@
 import { NextPage } from "next";
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import Launch from "../components/launch";
-import Link from "next/link";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import { useContext, useEffect } from "react";
+import { LaunchState } from "../contexts/LaunchContext";
+import YumFoodIcon from "../components/Icons";
 
 const Home: NextPage = () => {
-  let load = useRef(null);
+  const { setIsLaunched } = useContext(LaunchState);
+
+  const router = useRouter();
 
   useEffect(() => {
-    gsap.to(load, 0.5, {
-      opacity: 0,
-      display: "none",
-      delay: 3,
-    });
+    setTimeout(() => {
+      router.push("/home");
+      setIsLaunched(true);
+    }, 4000);
   }, []);
 
   return (
-    <>
-      <div
-        ref={(el: any) => {
-          load = el;
-        }}
-      >
-        <Launch />
-      </div>
-      <div className="grid place-content-center w-full h-16 bg-primary text-white text-xl font-semibold">
-        <h1>Yumfood</h1>
-      </div>
-      <div>
-        <h1>Hello World!</h1>
-        <Link href="/receiving">
-          <a>Receiving</a>
-        </Link>
-      </div>
-    </>
+    <div className="fixed grid place-content-center w-full h-screen bg-primary text-white text-3xl font-semibold font-poppins">
+      <YumFoodIcon />
+    </div>
   );
 };
 
