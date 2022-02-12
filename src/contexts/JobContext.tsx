@@ -33,6 +33,7 @@ export const JobState = createContext({
   jobIsActive: false,
   setJobIsActive: (jobIsActive: boolean) => {},
   addJob: () => {},
+  originJob: () => {},
 });
 
 const JobContext: React.FC = ({ children }) => {
@@ -53,6 +54,11 @@ const JobContext: React.FC = ({ children }) => {
     setJob(jobList[jobIdx]);
   };
 
+  const originJob = () => {
+    setJobIdx(0);
+    setJob(jobList[0]);
+  };
+
   return (
     <JobState.Provider
       value={{
@@ -67,6 +73,7 @@ const JobContext: React.FC = ({ children }) => {
         jobIsActive,
         setJobIsActive,
         addJob,
+        originJob,
       }}
     >
       {children}

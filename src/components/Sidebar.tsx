@@ -5,7 +5,7 @@ import { JobState } from "../contexts/JobContext";
 
 const Sidebar = () => {
   const { isSidebar, setIsSidebar } = useContext(SidebarState);
-  const { isErr, setIsErr, addJob } = useContext(JobState);
+  const { isErr, setIsErr, addJob, originJob } = useContext(JobState);
 
   return (
     <div
@@ -23,6 +23,7 @@ const Sidebar = () => {
         </div>
         <div className="space-y-10">
           <p onClick={addJob}>newJob</p>
+          <p onClick={originJob}>originJob</p>
           <p onClick={() => setIsErr(!isErr)}>{isErr ? "yes" : "no"}Err</p>
         </div>
       </div>
