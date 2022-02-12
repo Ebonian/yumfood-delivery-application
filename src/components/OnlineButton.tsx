@@ -5,7 +5,7 @@ import { OrderState } from "../contexts/OrderContext";
 
 const OnlineButton: React.FC = () => {
   const { isOnline, setIsOnline } = useContext(OrderState);
-  const { isJob, setIsJob } = useContext(JobState);
+  const { isJob, setIsJob, setIsProblem } = useContext(JobState);
   return (
     <div
       className={`${
@@ -15,6 +15,7 @@ const OnlineButton: React.FC = () => {
         setIsOnline(!isOnline);
         if (isJob) {
           setIsJob(false);
+          setIsProblem(false);
         }
       }}
     >

@@ -1,21 +1,36 @@
 import { useContext, useEffect, useState } from "react";
+import { FiAlertCircle } from "react-icons/fi";
 import { JobState } from "../contexts/JobContext";
 import { OrderState } from "../contexts/OrderContext";
 import Jobs from "./Jobs";
 
 const HomeTopTile: React.FC = () => {
   const { isOnline } = useContext(OrderState);
-  const { isJob, setIsJob } = useContext(JobState);
+  const { isJob, setIsJob, isErr, isProblem, setIsProblem } =
+    useContext(JobState);
 
   useEffect(() => {
     setTimeout(() => {
       setIsJob(true);
     }, 3000);
+
+    if (isErr) {
+      setTimeout(() => {
+        setIsProblem(true);
+      }, 6000);
+    }
   }, [isOnline]);
 
   return (
     <>
-      {isJob && isOnline ? (
+      {isProblem ? (
+        <div className="grid place-content-center bg-gray-50 h-48 w-full shadow-xl rounded-lg p-4 z-40 overflow-clip relative">
+          <div className="text-gray-400 flex justify-center px-4 space-x-3">
+            <FiAlertCircle className="text-3xl w-10" />
+            <span>There's an error, please contact support@yumfood.com</span>
+          </div>
+        </div>
+      ) : isJob && isOnline && !isErr ? (
         <div className="flex bg-gray-50 h-48 w-full shadow-xl rounded-lg p-4 z-40 overflow-clip relative">
           <Jobs />
           {/* <div className="absolute w-[90%] h-[83.5%] bg-white shadow-xl rounded-lg"></div> */}

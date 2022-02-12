@@ -20,6 +20,10 @@ export const JobState = createContext({
   setJob: (job: any) => {},
   isJob: false,
   setIsJob: (isJob: boolean) => {},
+  isErr: false,
+  setIsErr: (isErr: boolean) => {},
+  isProblem: false,
+  setIsProblem: (isProblem: boolean) => {},
 });
 
 const JobContext: React.FC = ({ children }) => {
@@ -44,8 +48,22 @@ const JobContext: React.FC = ({ children }) => {
   const [job, setJob] = useState(null);
   const [isJob, setIsJob] = useState(false);
 
+  const [isErr, setIsErr] = useState(false);
+  const [isProblem, setIsProblem] = useState(false);
+
   return (
-    <JobState.Provider value={{ job, setJob, isJob, setIsJob }}>
+    <JobState.Provider
+      value={{
+        job,
+        setJob,
+        isJob,
+        setIsJob,
+        isErr,
+        setIsErr,
+        isProblem,
+        setIsProblem,
+      }}
+    >
       {children}
     </JobState.Provider>
   );
