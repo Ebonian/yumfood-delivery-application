@@ -3,6 +3,9 @@ import type { AppProps } from "next/app";
 import LaunchContext from "../contexts/LaunchContext";
 import MapContext from "../contexts/MapContext";
 import Head from "next/head";
+import OrderContext from "../contexts/OrderContext";
+import JobContext from "../contexts/JobContext";
+import SidebarContext from "../contexts/SidebarContext";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -14,11 +17,17 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
         <title>Yumfood</title>
       </Head>
-      <MapContext>
-        <LaunchContext>
-          <Component {...pageProps} />
-        </LaunchContext>
-      </MapContext>
+      <JobContext>
+        <SidebarContext>
+          <MapContext>
+            <LaunchContext>
+              <OrderContext>
+                <Component {...pageProps} />
+              </OrderContext>
+            </LaunchContext>
+          </MapContext>
+        </SidebarContext>
+      </JobContext>
     </>
   );
 }
