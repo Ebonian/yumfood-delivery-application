@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { FiAlertCircle } from "react-icons/fi";
 import { JobState } from "../contexts/JobContext";
 import { OrderState } from "../contexts/OrderContext";

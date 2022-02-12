@@ -1,5 +1,4 @@
 import { NextPage } from "next";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import { useContext, useEffect } from "react";
 import { LaunchState } from "../contexts/LaunchContext";

@@ -1,8 +1,6 @@
-import Image from "next/image";
 import { useContext } from "react";
 import { FiPower, FiX } from "react-icons/fi";
 import { SidebarState } from "../contexts/SidebarContext";
-import YumFoodIcon from "../../public/images/icon2.svg";
 import { JobState } from "../contexts/JobContext";
 
 const Sidebar = () => {
@@ -23,7 +21,7 @@ const Sidebar = () => {
             <FiX className="text-xl" onClick={() => setIsSidebar(false)} />
           </div>
         </div>
-        <div>
+        <div className="space-y-10">
           <p onClick={addJob}>newJob</p>
           <p onClick={() => setIsErr(!isErr)}>{isErr ? "yes" : "no"}Err</p>
         </div>

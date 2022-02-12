@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import Link from "next/link";
-import { FiCheckCircle, FiCircle } from "react-icons/fi";
+import { FiCheckCircle } from "react-icons/fi";
 import { IoFastFoodOutline } from "react-icons/io5";
 import Header from "../components/Header";
 

@@ -1,18 +1,14 @@
 import { NextPage } from "next";
-import { useContext, useEffect, useState } from "react";
-import { MapState } from "../contexts/MapContext";
+import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import OnlineButton from "../components/OnlineButton";
-import { initializeMap } from "../../map/initializeMap";
-import Jobs from "../components/Jobs";
+import { initializeMap } from "../lib/initializeMap";
 import HomeTopTile from "../components/HomeTopTile";
 import Sidebar from "../components/Sidebar";
 
 const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
 
 const Home: NextPage = () => {
-  // const { Map } = useContext(MapState);
-
   const [pageIsMounted, setPageIsMounted] = useState(false);
   const [Map, setMap] = useState();
 
