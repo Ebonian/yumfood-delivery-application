@@ -47,7 +47,7 @@ const Receiving: NextPage = () => {
         </div>
         {/* action */}
         <div className="bg-gray-200">
-          <div className="w-full px-6 py-8 rounded-t-xl bg-white">
+          <div className="w-full px-6 pb-6 pt-10 rounded-t-xl bg-white">
             <div className="flex justify-between items-center mb-10 px-2 relative">
               {/* time */}
               <div className="absolute left-[3.5rem] -top-4 text-xs font-semibold text-gray-400">
