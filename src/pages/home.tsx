@@ -26,7 +26,7 @@ const Home: NextPage = () => {
       container: "my-map",
       style: "mapbox://styles/mapbox/outdoors-v11",
       center: [100.523186, 13.736717],
-      zoom: 18,
+      zoom: 14,
       // pitch: 75,
       // maxBounds: [
       //   [-77.875588, 38.50705], // Southwest coordinates

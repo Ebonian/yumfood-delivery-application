@@ -53,7 +53,7 @@ const Summary: NextPage = () => {
               </div>
             </div>
             <p className="text-sm text-gray-400 text-center mt-4 mb-2.5 italic">
-              "I'll wait at the guardhouse, Thanks!"
+              {`"I'll wait at the guardhouse, Thanks!"`}
             </p>
             <hr />
             <ol className="list-decimal text-primary font-semibold ml-6 mt-4 mr-3 space-y-4 text-sm">
