@@ -1,11 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { FiPower, FiSearch } from "react-icons/fi";
 import { JobState } from "../contexts/JobContext";
 import { OrderState } from "../contexts/OrderContext";
 
 const OnlineButton: React.FC = () => {
   const { isOnline, setIsOnline } = useContext(OrderState);
-  const { isJob, setIsJob, setIsProblem } = useContext(JobState);
+  const { isJob, setIsJob, setIsProblem, jobIsActive } = useContext(JobState);
+
+  useEffect(() => {
+    if (jobIsActive) {
+      setIsOnline(false);
+    }
+  }, []);
+
   return (
     <div
       className={`${

@@ -7,7 +7,7 @@ import { JobState } from "../contexts/JobContext";
 
 const Sidebar = () => {
   const { isSidebar, setIsSidebar } = useContext(SidebarState);
-  const { isErr, setIsErr } = useContext(JobState);
+  const { isErr, setIsErr, addJob } = useContext(JobState);
 
   return (
     <div
@@ -20,11 +20,12 @@ const Sidebar = () => {
         <div>
           <div className="flex justify-end w-full h-20">
             {/* <Image src={YumFoodIcon} width={50} height={50} /> */}
-            <FiX className="text-xl" />
+            <FiX className="text-xl" onClick={() => setIsSidebar(false)} />
           </div>
         </div>
         <div>
-          <p onClick={() => setIsErr(!isErr)}>{isErr ? "yes " : "no "}err</p>
+          <p onClick={addJob}>newJob</p>
+          <p onClick={() => setIsErr(!isErr)}>{isErr ? "yes" : "no"}Err</p>
         </div>
       </div>
 
