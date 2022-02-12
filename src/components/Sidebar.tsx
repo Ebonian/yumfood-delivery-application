@@ -23,7 +23,7 @@ const Sidebar = () => {
         </div>
         <div className="space-y-10">
           <p onClick={addJob}>newJob</p>
-          <p onClick={originJob}>originJob</p>
+          <p onClick={originJob}>resetJob</p>
           <p onClick={() => setIsErr(!isErr)}>{isErr ? "yes" : "no"}Err</p>
         </div>
       </div>

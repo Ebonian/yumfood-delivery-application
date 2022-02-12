@@ -4,6 +4,7 @@
     "type": "food",
     "title": "Starbuck Bangkapi",
     "customer": "Tanadon Santisan",
+    "dropoff": "Village",
     "time": {
       "pickup": 4,
       "dropoff": 8
@@ -16,13 +17,19 @@
     "distance": {
       "pickup": 9,
       "dropoff": 2
-    }
+    },
+    "orders": [
+      "Java Chip Venti Size",
+      "Spinach Quiche",
+      "Earl Grey Matcha Cake"
+    ]
   },
   {
     "id": 88454,
     "type": "food",
     "title": "McDonald Bangkapi",
     "customer": "Tanadon Santisan",
+    "dropoff": "Condominium",
     "time": {
       "pickup": 6,
       "dropoff": 9
@@ -35,6 +42,7 @@
     "distance": {
       "pickup": 12,
       "dropoff": 4
-    }
+    },
+    "orders": ["", "", ""]
   }
 ]

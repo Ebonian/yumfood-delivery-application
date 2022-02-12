@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { JobState } from "../contexts/JobContext";
 
 const Receiving: NextPage = () => {
-  const { job, setJobIsActive } = useContext(JobState);
+  const { job, setJobIsActive, setPickup } = useContext(JobState);
   return (
     <>
       <Header />
@@ -24,7 +24,7 @@ const Receiving: NextPage = () => {
             </h3>
             <div className="w-full flex justify-between items-center">
               {/* title */}
-              <h1 className="font-bold text-xl">{job?.title}</h1>
+              <h1 className="font-bold text-xl text-gray-800">{job?.title}</h1>
               {/* time */}
               <h3 className="uppercase text-primary font-semibold text-sm">
                 {job?.time?.pickup} min
@@ -85,7 +85,10 @@ const Receiving: NextPage = () => {
               <Link href="/pickup">
                 <a
                   className="grid place-content-center py-3 px-12 uppercase rounded-full font-medium bg-primary text-white"
-                  onClick={() => setJobIsActive(true)}
+                  onClick={() => {
+                    setJobIsActive(true);
+                    setPickup(true);
+                  }}
                 >
                   Accept
                 </a>

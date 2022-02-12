@@ -13,37 +13,41 @@ const OnlineButton: React.FC = () => {
     }
   }, []);
 
-  return (
-    <div
-      className={`${
-        isOnline ? "bg-gray-400 w-56" : "bg-primary w-44"
-      } text-white rounded-full flex justify-center items-center py-3 font-medium text-lg mb-6 shadow-xl duration-[400ms] overflow-hidden relative z-40`}
-      onClick={() => {
-        setIsOnline(!isOnline);
-        if (isJob) {
-          setIsJob(false);
-          setIsProblem(false);
-        }
-      }}
-    >
+  if (jobIsActive) {
+    return null;
+  } else {
+    return (
       <div
-        className={`flex absolute items-center space-x-2 duration-[400ms] animate-pulse ${
-          !isOnline && "-translate-y-12 opacity-0"
-        }`}
+        className={`${
+          isOnline ? "bg-gray-400 w-56" : "bg-primary w-44"
+        } text-white rounded-full flex justify-center items-center py-3 font-medium text-lg mb-6 shadow-xl duration-[400ms] overflow-hidden relative z-40`}
+        onClick={() => {
+          setIsOnline(!isOnline);
+          if (isJob) {
+            setIsJob(false);
+            setIsProblem(false);
+          }
+        }}
       >
-        <FiSearch />
-        <span>Searching orders...</span>
+        <div
+          className={`flex absolute items-center space-x-2 duration-[400ms] animate-pulse ${
+            !isOnline && "-translate-y-12 opacity-0"
+          }`}
+        >
+          <FiSearch />
+          <span>Searching orders...</span>
+        </div>
+        <div
+          className={`flex items-center space-x-2 duration-[400ms] ${
+            isOnline && "translate-y-12 opacity-0"
+          }`}
+        >
+          <FiPower />
+          <span>Go Online</span>
+        </div>
       </div>
-      <div
-        className={`flex items-center space-x-2 duration-[400ms] ${
-          isOnline && "translate-y-12 opacity-0"
-        }`}
-      >
-        <FiPower />
-        <span>Go Online</span>
-      </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default OnlineButton;

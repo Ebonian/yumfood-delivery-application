@@ -2,12 +2,22 @@ import { useContext, useEffect } from "react";
 import { FiAlertCircle } from "react-icons/fi";
 import { JobState } from "../contexts/JobContext";
 import { OrderState } from "../contexts/OrderContext";
+import DropoffActiveJob from "./DropoffActiveJob";
 import Jobs from "./Jobs";
+import PickupActiveJob from "./PickupActiveJob";
 
 const HomeTopTile: React.FC = () => {
   const { isOnline } = useContext(OrderState);
-  const { isJob, setIsJob, isErr, isProblem, setIsProblem, jobIsActive } =
-    useContext(JobState);
+  const {
+    isJob,
+    setIsJob,
+    isErr,
+    isProblem,
+    setIsProblem,
+    jobIsActive,
+    pickup,
+    dropoff,
+  } = useContext(JobState);
 
   useEffect(() => {
     setIsJob(false);
@@ -24,10 +34,10 @@ const HomeTopTile: React.FC = () => {
 
   return (
     <>
-      {jobIsActive ? (
-        <div className="bg-gray-50 h-48 w-full shadow-xl rounded-lg p-4 z-40 overflow-clip relative">
-          job is active
-        </div>
+      {jobIsActive && dropoff ? (
+        <DropoffActiveJob />
+      ) : jobIsActive && pickup ? (
+        <PickupActiveJob />
       ) : isProblem && isErr ? (
         <div className="grid place-content-center bg-gray-50 h-48 w-full shadow-xl rounded-lg p-4 z-40 overflow-clip relative">
           <div className="text-gray-400 flex justify-center px-4 space-x-3">

@@ -8,6 +8,7 @@ export const JobState = createContext({
       type: "",
       title: "",
       customer: "",
+      dropoff: "",
       time: {
         pickup: 0,
         dropoff: 0,
@@ -21,6 +22,7 @@ export const JobState = createContext({
         pickup: 0,
         dropoff: 0,
       },
+      orders: [""],
     } ||
     null,
   setJob: (job: any) => {},
@@ -34,6 +36,10 @@ export const JobState = createContext({
   setJobIsActive: (jobIsActive: boolean) => {},
   addJob: () => {},
   originJob: () => {},
+  pickup: false,
+  setPickup: (pickup: boolean) => {},
+  dropoff: false,
+  setDropoff: (dropoff: boolean) => {},
 });
 
 const JobContext: React.FC = ({ children }) => {
@@ -48,6 +54,9 @@ const JobContext: React.FC = ({ children }) => {
   const [jobIsActive, setJobIsActive] = useState(false);
 
   const [jobIdx, setJobIdx] = useState(0);
+
+  const [pickup, setPickup] = useState(false);
+  const [dropoff, setDropoff] = useState(false);
 
   const addJob = () => {
     setJobIdx(jobIdx + 1);
@@ -74,6 +83,10 @@ const JobContext: React.FC = ({ children }) => {
         setJobIsActive,
         addJob,
         originJob,
+        pickup,
+        setPickup,
+        dropoff,
+        setDropoff,
       }}
     >
       {children}

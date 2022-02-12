@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useContext } from "react";
 import { JobState } from "../contexts/JobContext";
 
-const Pickup: NextPage = () => {
+const Dropoff: NextPage = () => {
   const { job } = useContext(JobState);
   return (
     <main className="flex flex-col justify-between h-screen font-poppins select-none">
@@ -31,22 +31,22 @@ const Pickup: NextPage = () => {
             </div>
             <div>
               <p className="text-sm font-medium text-gray-400">Distance</p>
-              <h3 className="font-bold">{job?.distance?.pickup} km</h3>
+              <h3 className="font-bold">{job?.distance?.dropoff} km</h3>
             </div>
           </div>
           <hr className="my-3" />
           <div className="flex justify-between items-end">
             <div>
               <p className="text-gray-400 text-sm font-medium">
-                Order ready to be picked in
+                Order to deliver in
               </p>
               <h1 className="text-primary font-bold text-2xl">
-                {job?.time?.pickup} min
+                {job?.time?.dropoff} min
               </h1>
             </div>
             <Link href="/home">
               <a className="rounded-full bg-primary text-white font-medium py-2 px-3">
-                Start pick-up
+                Start drop-off
               </a>
             </Link>
           </div>
@@ -56,4 +56,4 @@ const Pickup: NextPage = () => {
   );
 };
 
-export default Pickup;
+export default Dropoff;
