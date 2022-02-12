@@ -32,7 +32,9 @@ const HomeTopTile: React.FC = () => {
         <div className="grid place-content-center bg-gray-50 h-48 w-full shadow-xl rounded-lg p-4 z-40 overflow-clip relative">
           <div className="text-gray-400 flex justify-center px-4 space-x-3">
             <FiAlertCircle className="text-3xl w-10" />
-            <span>There's an error, please contact support@yumfood.com</span>
+            <span>
+              {"There's an error, please contact support@yumfood.com"}
+            </span>
           </div>
         </div>
       ) : isJob && isOnline && !isErr ? (
