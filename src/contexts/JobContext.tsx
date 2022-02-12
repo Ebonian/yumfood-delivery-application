@@ -32,7 +32,7 @@ export const JobState = createContext({
   setIsProblem: (isProblem: boolean) => {},
   jobIsActive: false,
   setJobIsActive: (jobIsActive: boolean) => {},
-  addJob: async () => {},
+  addJob: () => {},
 });
 
 const JobContext: React.FC = ({ children }) => {
@@ -48,8 +48,8 @@ const JobContext: React.FC = ({ children }) => {
 
   const [jobIdx, setJobIdx] = useState(0);
 
-  const addJob = async () => {
-    await setJobIdx(jobIdx + 1);
+  const addJob = () => {
+    setJobIdx(jobIdx + 1);
     setJob(jobList[jobIdx]);
   };
 
